@@ -94,9 +94,9 @@ export const TestimonialGridSection = ({
             },
           }}
         >
-          {testimonialsData.map((t) => (
+          {testimonialsData.map((t, index) => (
             <SwiperSlide key={t.id}>
-              <VideoCard data={t} />
+              <VideoCard data={t} index={index} />
             </SwiperSlide>
           ))}
         </Swiper>

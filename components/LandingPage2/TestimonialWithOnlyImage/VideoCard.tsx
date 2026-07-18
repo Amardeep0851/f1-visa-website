@@ -5,7 +5,7 @@ import { Play} from "lucide-react";
 import { Testimonial } from "@/lib/types";
 
 // --- Video Card Component (Universal & Optimized) ---
-const VideoCard = ({ data }: { data: Testimonial }) => {
+const VideoCard = ({ data, index }: { data: Testimonial, index:number }) => {
   // --- Utilities ---
   const isYouTubeVideo = (url: string) => {
     return /^[a-zA-Z0-9_-]{11}$/.test(url);
@@ -30,7 +30,7 @@ const VideoCard = ({ data }: { data: Testimonial }) => {
             fill
             className="object-cover object-top transition-transform duration-500 group-hover:scale-105 bg-white "
             loading="lazy"
-            priority={false}
+            priority={index<3}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           />
         ) : !isPlaying ? (
@@ -42,7 +42,7 @@ const VideoCard = ({ data }: { data: Testimonial }) => {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
-                priority={false}
+                priority={index<3}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               />
             ) : (
