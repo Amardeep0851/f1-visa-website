@@ -1,0 +1,214 @@
+/* 3D passport. All sizes are in a fixed 230 x 330 box and scaled by GSAP from outside. */
+.pp {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.intro {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.float {
+  position: absolute;
+  left: 0;
+  top: 0;
+  perspective: 1600px;
+  animation: bob 7s ease-in-out infinite;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.book {
+  --w: 230px;
+  --h: 330px;
+  --open: 0;
+  --tx: 0deg;
+  --ty: 0deg;
+  --tz: 0deg;
+  position: absolute;
+  left: calc(var(--w) / -2);
+  top: calc(var(--h) / -2);
+  width: var(--w);
+  height: var(--h);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tx)) rotateY(var(--ty)) rotateZ(var(--tz));
+}
+.shadow {
+  position: absolute;
+  left: calc(230px * (1 + var(--open, 0)) * -0.475);
+  top: calc(165px + 8px);
+  width: calc(230px * (1 + var(--open, 0)) * 0.95);
+  height: 34px;
+  background: radial-gradient(closest-side, rgb(20 16 8 / 0.34), transparent);
+}
+.shift {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateX(calc(var(--w) * 0.5 * var(--open)));
+}
+.base {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-2px);
+}
+.cover {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 50%;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--open) * -180deg));
+}
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Cover: dark navy leatherette with gold print */
+.front {
+  border-radius: 4px 10px 10px 4px;
+  background:
+    radial-gradient(120% 90% at 30% 15%, rgb(255 255 255 / 0.07), transparent 55%),
+    repeating-linear-gradient(115deg, rgb(255 255 255 / 0.03) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(25deg, rgb(0 0 0 / 0.07) 0 1px, transparent 1px 3px),
+    linear-gradient(150deg, var(--pj-cover), var(--pj-cover-deep));
+  box-shadow:
+    inset 7px 0 10px -5px rgb(0 0 0 / 0.6),
+    inset 0 0 0 1px rgb(255 255 255 / 0.06);
+  color: var(--pj-gold);
+}
+.coverArt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.coverArt text {
+  fill: currentColor;
+}
+.latin {
+  font-family: var(--font-pj-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+}
+.hindi {
+  font-family: var(--font-pj-deva), "Noto Sans Devanagari", sans-serif;
+  font-weight: 600;
+}
+
+/* Inside pages: pale security paper with fine guilloche */
+.page {
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 27px, var(--pj-paper-line) 27px 28px) 0 38px / 100% 100% no-repeat,
+    repeating-radial-gradient(circle at 50% 125%, transparent 0 7px, color-mix(in srgb, var(--pj-paper-line) 55%, transparent) 7px 8px),
+    var(--pj-paper);
+  box-shadow: 0 0 0 4px var(--pj-cover-deep);
+}
+.pageR {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px 7px 7px 2px;
+}
+.pageR::after,
+.pageL::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pageR::after {
+  background: linear-gradient(90deg, rgb(0 0 0 / 0.2), transparent 12%);
+}
+.back {
+  transform: rotateY(180deg);
+}
+.pageL {
+  border-radius: 7px 2px 2px 7px;
+}
+.pageL::after {
+  background: linear-gradient(270deg, rgb(0 0 0 / 0.2), transparent 12%);
+}
+.label {
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  font: 700 8px/1 var(--font-pj-body), sans-serif;
+  letter-spacing: 0.32em;
+  color: var(--pj-paper-ink);
+}
+.no {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font: 700 8px/1 var(--font-pj-body), sans-serif;
+  letter-spacing: 0.2em;
+  color: var(--pj-paper-ink);
+}
+
+/* Stamps */
+.stamp {
+  position: absolute;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+.stamp svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.ink {
+  filter: url(#pj-ink);
+}
+.stamp text {
+  fill: currentColor;
+  font-family: var(--font-pj-body), sans-serif;
+  font-weight: 700;
+}
+.stamp :global(.big) {
+  font-family: var(--font-pj-display), Impact, sans-serif;
+  font-weight: 400;
+}
+.us {
+  width: 118px;
+  left: 14px;
+  top: 30px;
+  color: var(--pj-ink-us);
+}
+.nl {
+  width: 132px;
+  left: 28px;
+  top: 182px;
+  color: var(--pj-ink-nl);
+}
+.ca {
+  width: 140px;
+  left: 18px;
+  top: 34px;
+  color: var(--pj-ink-ca);
+}
+.ae {
+  width: 116px;
+  left: 34px;
+  top: 178px;
+  color: var(--pj-ink-ae);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float {
+    animation: none;
+  }
+}
