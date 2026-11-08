@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative Indian passport cover</title>
+  <desc id="desc">A front-facing, deep navy passport cover with restrained gold vector detailing, on a transparent background.</desc>
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14263a"/>
+      <stop offset=".48" stop-color="#0b1929"/>
+      <stop offset="1" stop-color="#07111d"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#030912"/>
+      <stop offset=".45" stop-color="#1b2b3d"/>
+      <stop offset="1" stop-color="#050c15"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#f0d99a"/>
+      <stop offset=".45" stop-color="#c9a65d"/>
+      <stop offset="1" stop-color="#92713b"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="24" result="blur"/>
+      <feOffset dy="22" result="offset"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".36"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".55" fill="#d9e2ec" opacity=".12"/>
+      <circle cx="5" cy="4" r=".45" fill="#000" opacity=".18"/>
+    </pattern>
+  </defs>
+
+  <!-- Soft contact shadow; the SVG canvas itself remains transparent. -->
+  <g filter="url(#shadow)" transform="translate(0 0)">
+    <!-- Slightly visible page block and cover edge -->
+    <path d="M350 105 Q350 91 366 91 H846 Q868 91 868 113 V789 Q868 808 848 808 H369 Q350 808 350 789Z" fill="url(#edge)" stroke="#243447" stroke-width="2"/>
+    <path d="M357 113 Q357 99 373 99 H847 Q859 99 859 114 V782 Q859 797 845 797 H373 Q357 797 357 782Z" fill="#d7d0bd" opacity=".12"/>
+    <!-- Main cover -->
+    <path d="M335 92 Q335 76 353 76 H829 Q852 76 852 99 V778 Q852 800 831 800 H354 Q335 800 335 780Z" fill="url(#cover)" stroke="#27394b" stroke-width="2.5"/>
+    <path d="M350 109 Q350 93 367 93 H817 Q835 93 835 111 V765 Q835 783 817 783 H367 Q350 783 350 765Z" fill="none" stroke="#536174" stroke-opacity=".26" stroke-width="1.2"/>
+    <path d="M335 92 Q335 76 353 76 H829 Q852 76 852 99 V778 Q852 800 831 800 H354 Q335 800 335 780Z" fill="url(#grain)" opacity=".42"/>
+    <!-- Spine detail -->
+    <path d="M365 95 V781" stroke="#020912" stroke-width="8" opacity=".45"/>
+    <path d="M374 101 V775" stroke="#718094" stroke-width="1" opacity=".28"/>
+    <path d="M384 101 V775" stroke="#020a13" stroke-width="1" opacity=".45"/>
+
+    <!-- Decorative emblem: original geometric mark, not an official seal -->
+    <g transform="translate(594 282)" fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="53" stroke-width="2.6"/>
+      <circle r="45" stroke-width="1" opacity=".65"/>
+      <path d="M0 -36 L8 -14 L30 -25 L17 -5 L39 0 L17 7 L29 28 L7 17 L0 39 L-7 17 L-29 28 L-17 7 L-39 0 L-17 -5 L-30 -25 L-8 -14Z" stroke-width="1.8"/>
+      <circle r="10" stroke-width="2"/>
+      <path d="M-19 53 H19 M-13 59 H13" stroke-width="1.4" opacity=".8"/>
+    </g>
+
+    <!-- Cover typography -->
+    <text x="594" y="410" text-anchor="middle" fill="url(#gold)" font-family="Georgia, 'Times New Roman', serif" font-size="31" letter-spacing="4.5">भारत गणराज्य</text>
+    <text x="594" y="456" text-anchor="middle" fill="url(#gold)" font-family="Georgia, 'Times New Roman', serif" font-size="27" letter-spacing="5.5">REPUBLIC OF INDIA</text>
+    <text x="594" y="550" text-anchor="middle" fill="url(#gold)" font-family="Georgia, 'Times New Roman', serif" font-size="55" letter-spacing="12">PASSPORT</text>
+
+    <!-- Subtle lower security-inspired ornament -->
+    <g transform="translate(594 655)" stroke="url(#gold)" fill="none" opacity=".72">
+      <path d="M-92 0 H-43 M43 0 H92" stroke-width="1.4"/>
+      <circle r="24" stroke-width="1.4"/>
+      <circle r="17" stroke-width="1"/>
+      <path d="M0 -14 V14 M-14 0 H14 M-10 -10 L10 10 M10 -10 L-10 10" stroke-width="1"/>
+    </g>
+    <text x="594" y="724" text-anchor="middle" fill="#c9a65d" opacity=".78" font-family="Arial, sans-serif" font-size="12" letter-spacing="5">TRAVEL • IDENTITY • JOURNEY</text>
+  </g>
+</svg>

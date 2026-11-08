@@ -29,7 +29,6 @@ const VideoCard = ({ data, index }: { data: Testimonial, index:number }) => {
             alt={`Testimonial by ${data.name}`}
             fill
             className="object-cover object-top transition-transform duration-500 group-hover:scale-105 bg-white "
-            loading="lazy"
             priority={index<3}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           />

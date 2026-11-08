@@ -3,13 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Additive brand tokens for the new editorial hero. Existing page tokens remain unchanged. */
+  --brand-primary: #f7f3eb;
+  --brand-secondary: #171717;
+  --brand-card: #fffdf8;
+  --brand-accent: #b91c1c;
+  --brand-accent-soft: #f4d9d5;
+  --brand-muted: #625f5a;
+  --brand-line: #d8d1c7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--brand-primary);
+  --color-secondary: var(--brand-secondary);
+  --color-card: var(--brand-card);
+  --color-accent: var(--brand-accent);
+  --color-accent-soft: var(--brand-accent-soft);
+  --color-muted: var(--brand-muted);
+  --color-line: var(--brand-line);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-hero-display);
+  --font-editorial: var(--font-hero-editorial);
+  --font-body: var(--font-hero-body);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,60 +47,47 @@ body {
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
-  
 }
+
 .testimonial-slider .swiper-button-next,
 .testimonial-slider .swiper-button-prev {
   width: 40px !important;
   height: 40px !important;
-
   background: #b91c1c;
   color: white !important;
-
   border-radius: 10%;
-
   display: flex !important;
   align-items: center;
   justify-content: center;
-
   box-shadow: 0 10px 25px rgb(185 28 28 / 0.3);
-
   transition: 0.25s ease;
-  padding: 5px 0px 5px 0px;
+  padding: 5px 0;
 }
-
 
 /* fix arrow size and center */
 .testimonial-slider .swiper-button-next::after,
 .testimonial-slider .swiper-button-prev::after {
   font-size: 18px !important;
   font-weight: 900;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
 /* move buttons inside slider */
 .testimonial-slider .swiper-button-next {
-  right: 0px !important;
+  right: 0 !important;
   border: 4px solid #b91c1c;
 }
 
 .testimonial-slider .swiper-button-prev {
-  left: 0px !important;
-  
+  left: 0 !important;
   border: 4px solid #b91c1c;
 }
-
 
 .testimonial-slider .swiper-button-next:hover,
 .testimonial-slider .swiper-button-prev:hover {
   background: #991b1b;
   transform: scale(1.08);
-  
   border: 4px solid #991b1b;
 }
-
-
