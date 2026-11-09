@@ -1,0 +1,67 @@
+/* Cards rise in once the section is on screen ([data-inview] is set by StoriesClient).
+   Every selector starts with a local class (.grid), which Turbopack requires. */
+.card {
+  opacity: 1;
+}
+.grid[data-inview="true"] .card {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Name ticker */
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Ticket perforation: dashed line with a half-circle cut on each side */
+.perforation {
+  position: relative;
+  height: 0;
+  border-top: 2px dashed rgb(23 32 43 / 0.18);
+  margin: 0 18px;
+}
+.perforation::before,
+.perforation::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--notch, #141414);
+}
+.perforation::before {
+  left: -29px;
+}
+.perforation::after {
+  right: -29px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid[data-inview="true"] .card {
+    animation: none;
+  }
+  .track {
+    animation: none;
+  }
+}

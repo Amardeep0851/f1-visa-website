@@ -11,15 +11,11 @@ interface JourneyLinkProps {
   message?: string;
 }
 
-/** Link that can also open the site's WhatsApp enquiry, so data files stay plain strings. */
+/** Link that can also open the site's WhatsApp enquiry, so the data file stays plain strings. */
 export default function JourneyLink({ href, className, children, message }: JourneyLinkProps) {
   if (href === "whatsapp") {
     return (
-      <button
-        type="button"
-        className={className}
-        onClick={() => handleWhatsappClickWithMessage(message)}
-      >
+      <button type="button" className={className} onClick={() => handleWhatsappClickWithMessage(message)}>
         {children}
       </button>
     );

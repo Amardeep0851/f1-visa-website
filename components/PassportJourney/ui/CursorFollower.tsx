@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-/** Small dot plus a lagging ring, only for devices with a real hover pointer. */
+/** Small dot plus a lagging ring, only on devices with a real mouse. */
 export default function CursorFollower() {
   const dot = useRef<HTMLSpanElement>(null);
   const ring = useRef<HTMLSpanElement>(null);
@@ -35,9 +35,9 @@ export default function CursorFollower() {
   }, []);
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-50">
-      <span ref={ring} className="invisible absolute left-0 top-0 size-12 rounded-full border border-(--pj-ink)/70" />
-      <span ref={dot} className="invisible absolute left-0 top-0 size-2 rounded-full bg-(--pj-ink)" />
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[60]">
+      <span ref={ring} className="invisible absolute left-0 top-0 size-11 rounded-full border border-secondary/70" />
+      <span ref={dot} className="invisible absolute left-0 top-0 size-2 rounded-full bg-secondary" />
     </div>
   );
 }

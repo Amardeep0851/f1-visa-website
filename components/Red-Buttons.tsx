@@ -33,8 +33,8 @@ const RedButton = ({
 
   const content = (
     <>
-      {icon && <span className="flex-shrink-0">{icon}</span>}
       <span>{text}</span>
+      {icon && <span className="flex-shrink-0">{icon}</span>}
     </>
   );
 
