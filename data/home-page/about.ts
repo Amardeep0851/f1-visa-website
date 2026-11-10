@@ -13,7 +13,7 @@ export const OFFICE = {
 } as const;
 
 export const aboutCopy = {
-  label: "04 — About us",
+  label: "05 — About us",
   heading: "The team behind",
   accent: "your first stamp.",
   intro:
@@ -33,7 +33,7 @@ export const aboutStats = [
   { value: 94, suffix: "%", label: "Approval rate" },
   { value: 50000, suffix: "+", label: "Happy clients" },
   { value: 15, suffix: "+", label: "Countries served" },
-  { value: countries.length, suffix: "", label: "Study destinations" },
+    { value: countries.filter((c) => c.kind !== "tourist").length, suffix: "", label: "Study destinations" },,
 ] as const;
 
 /** The "passport data page" card. Labels are printed small, values large. */

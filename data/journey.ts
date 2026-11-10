@@ -63,6 +63,7 @@ export interface Country {
   cta: { label: string; href: string };
   /** Optional landmark line-art shown faintly behind the text. Upload to /public. */
   image?: string;
+  kind:  "study" | "tourist";
 }
 
 export const countriesCopy = {
@@ -75,17 +76,19 @@ export const countriesCopy = {
 export const countries: Country[] = [
   {
     id: "usa",
+    kind:"study",
     name: "United States",
     stampName: "UNITED STATES",
     stampVisa: "F-1 STUDENT VISA",
     tagline: "Study in the U.S.",
     description:
       "University admission and your I-20, the DS-160 form, the SEVIS fee and interview preparation, step by step.",
-    cta: { label: "See intake dates, costs and requirements", href: SITE.usa },
+    cta: { label: "See intake dates, costs and requirements", href: "https://usa.yourf1visaguide.com/" },
     image: "/images/journey/countries/usa.png",
   },
   {
     id: "uk",
+    kind:"study",
     name: "United Kingdom",
     stampName: "UNITED KINGDOM",
     stampVisa: "STUDENT VISA",
@@ -97,6 +100,7 @@ export const countries: Country[] = [
   },
   {
     id: "canada",
+    kind:"study",
     name: "Canada",
     stampName: "CANADA",
     stampVisa: "STUDY PERMIT",
@@ -106,19 +110,21 @@ export const countries: Country[] = [
     cta: { label: "Ask us about Canada", href: "whatsapp" },
     image: "/images/journey/countries/canada.png",
   },
-  {
-    id: "australia",
-    name: "Australia",
-    stampName: "AUSTRALIA",
-    stampVisa: "STUDENT · SUBCLASS 500",
-    tagline: "Study in Australia",
+    {
+    id: "netherlands",
+    kind:"study",
+    name: "Netherlands",
+    stampName: "NETHERLANDS",
+    stampVisa: "MVV · STUDY",
+    tagline: "Study in the Netherlands",
     description:
-      "Your Confirmation of Enrolment, overseas student health cover and a well-prepared online application.",
-    cta: { label: "Ask us about Australia", href: "whatsapp" },
-    image: "/images/journey/countries/australia.png",
+      "Your Dutch university applies for your entry visa (MVV) and residence permit. We get your proof of funds, insurance and documents ready first.",
+    cta: { label: "See intake dates, costs and requirements", href: "https://usa.yourf1visaguide.com/" },
+    image: "/images/journey/countries/netherlands.png",
   },
   {
     id: "germany",
+    kind:"study",
     name: "Germany",
     stampName: "GERMANY",
     stampVisa: "NATIONAL VISA · STUDY",
@@ -130,17 +136,19 @@ export const countries: Country[] = [
   },
   {
     id: "dubai",
+    kind:"study",
     name: "Dubai (UAE)",
     stampName: "UNITED ARAB EMIRATES",
     stampVisa: "DUBAI · STUDENT VISA",
     tagline: "Study in Dubai",
     description:
       "Admission or transfer to a university in Dubai, followed by your student visa and residence steps.",
-    cta: { label: "See intake dates, costs and requirements", href: SITE.dubai },
+    cta: { label: "See intake dates, costs and requirements", href: "https://dubai.yourf1visaguide.com/" },
     image: "/images/journey/countries/dubai.png",
   },
   {
     id: "new-zealand",
+    kind:"study",
     name: "New Zealand",
     stampName: "NEW ZEALAND",
     stampVisa: "STUDENT VISA",
@@ -149,6 +157,18 @@ export const countries: Country[] = [
       "An offer of place, proof of funds and your online student visa application, checked before you submit.",
     cta: { label: "Ask us about New Zealand", href: "whatsapp" },
     image: "/images/journey/countries/new-zealand.png",
+  },
+   {
+    id: "tourist",
+    kind: "tourist",
+    name: "Tourist Visa",
+    stampName: "TOURIST VISA",
+    stampVisa: "VISITOR · SHORT STAY",
+    tagline: "Travel the world",
+    description:
+      "A holiday, a family visit or a short trip abroad. We prepare your visitor visa file for the country you are visiting, from documents to appointment.",
+    cta: { label: "See all tourist visa options", href: "https://touristvisas.yourf1visaguide.com/" },
+    image: "/images/journey/countries/tourist.png",
   },
 ];
 

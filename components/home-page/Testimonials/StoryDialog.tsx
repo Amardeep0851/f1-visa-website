@@ -5,7 +5,7 @@ import { ArrowRight, X } from "lucide-react";
 import { fullImageSrc, videoEmbed, type Story } from "@/lib/home-page/testimonials";
 import { handleWhatsappClickWithMessage } from "@/function/handleWhatsapp";
 import { storiesCopy } from "@/data/home-page/testimonials";
-import { FONT_DISPLAY } from "@/components/PassportJourney/ui/tokens";
+import { FONT_DISPLAY } from "@/components/home-page/PassportJourney/ui/tokens";
 
 interface StoryDialogProps {
   story: Story | null;

@@ -43,7 +43,7 @@ export default function CountriesSection({ onNext }: CountriesSectionProps) {
         <div className="absolute bottom-[22%] right-[12%] hidden w-[220px] rotate-[10deg] opacity-[0.1] lg:block">
           <VisaStamp country={countries[(total - 2 + total) % total]} index={0} idSuffix="bg2" />
         </div>
-        {countries.map((c, i) =>
+        {/* {countries.map((c, i) =>
           c.image ? (
             <div
               key={c.id}
@@ -52,7 +52,7 @@ export default function CountriesSection({ onNext }: CountriesSectionProps) {
               style={{ backgroundImage: `url(${c.image})` }}
             />
           ) : null,
-        )}
+        )} */}
       </div>
 
       <p className="absolute right-4 top-7 hidden font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-accent sm:right-8 lg:right-14 sm:block lg:top-9  lg:text-[14px]">
@@ -97,14 +97,14 @@ export default function CountriesSection({ onNext }: CountriesSectionProps) {
                 <p className="max-w-[46ch] text-[15px] leading-relaxed text-secondary/70 lg:text-[clamp(16px,1.3vw,21px)]">
                   {c.description}
                 </p>
-                {/* <JourneyLink
+                <JourneyLink
                   href={c.cta.href}
                   message={`Hi, I'd like to know more about studying in ${c.name}.`}
                   className="inline-flex w-fit items-center gap-2 text-[15px] font-bold text-accent underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
                 >
                   {c.cta.label}
                   <ArrowRight size={16} strokeWidth={2.5} />
-                </JourneyLink> */}
+                </JourneyLink>
               </article>
             ))}
           </div>

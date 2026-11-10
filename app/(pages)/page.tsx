@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PassportJourney from "@/components/PassportJourney/PassportJourney";
+import PassportJourney from "@/components/home-page/PassportJourney/PassportJourney";
 import AboutSection from "@/components/home-page/AboutSection/AboutSection";
 import TestimonialsSection from "@/components/home-page/Testimonials/TestimonialsSection";
 

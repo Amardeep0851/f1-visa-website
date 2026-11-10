@@ -1,6 +1,9 @@
+"use client";
+
+import { useState, type ImgHTMLAttributes, type SyntheticEvent } from "react";
 import { Play } from "lucide-react";
-import { imageSrc, imageSrcSet, videoThumb, type Story } from "@/lib/home-page/testimonials";
-import { FONT_DISPLAY } from "@/components/PassportJourney/ui/tokens";
+import { imageSrc, imageSrcSet, videoThumb, videoThumbVertical, type Story } from "@/lib/home-page/testimonials";
+import { FONT_DISPLAY } from "@/components/home-page/PassportJourney/ui/tokens";
 import styles from "./stories.module.css";
 
 interface StoryCardProps {
@@ -13,6 +16,29 @@ interface StoryCardProps {
 
 const label = "font-mono text-[9.5px] font-semibold uppercase tracking-[0.2em] text-[#6d6656]";
 
+/**
+ * Most story videos are Shorts, whose normal thumbnail has black bars. Try the vertical
+ * thumbnail first; if YouTube has none (it returns an error or a small landscape
+ * placeholder), fall back to the normal one.
+ */
+function VideoThumb({ id, ...rest }: { id: string } & ImgHTMLAttributes<HTMLImageElement>) {
+  const [fallback, setFallback] = useState(false);
+  const check = (e: SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    if (!fallback && img.naturalWidth >= img.naturalHeight) setFallback(true);
+  };
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      {...rest}
+      alt=""
+      src={fallback ? videoThumb(id) : videoThumbVertical(id)}
+      onLoad={check}
+      onError={() => setFallback(true)}
+    />
+  );
+}
+
 /** Thumbnail that is cheap to load: lazy, sized by Cloudinary, YouTube thumbnail instead of the player. */
 function Thumb({ story, featured, eager }: { story: Story; featured?: boolean; eager: boolean }) {
   const common = {
@@ -21,8 +47,7 @@ function Thumb({ story, featured, eager }: { story: Story; featured?: boolean; e
     className: "absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.04]",
   };
   if (story.media.kind === "video") {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={videoThumb(story.media.id)} alt="" {...common} />;
+    return <VideoThumb id={story.media.id} {...common} />;
   }
   return (
     // eslint-disable-next-line @next/next/no-img-element
@@ -36,7 +61,6 @@ function Thumb({ story, featured, eager }: { story: Story; featured?: boolean; e
     />
   );
 }
-
 /** A story styled like a boarding pass: photo on top, perforation, then passenger details. */
 export default function StoryCard({ story, index, onOpen, featured = false }: StoryCardProps) {
   const isVideo = story.media.kind === "video";

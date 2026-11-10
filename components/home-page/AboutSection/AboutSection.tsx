@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { aboutCopy, aboutStats, OFFICE, promises } from "@/data/home-page/about";
 import { handleWhatsappClickWithMessage } from "@/function/handleWhatsapp";
-import BrushUnderline from "@/components/PassportJourney/ui/BrushUnderline";
-import { FONT_BODY, FONT_DISPLAY, FONT_EDITORIAL } from "@/components/PassportJourney/ui/tokens";
+import BrushUnderline from "@/components/home-page/PassportJourney/ui/BrushUnderline";
+import { FONT_BODY, FONT_DISPLAY, FONT_EDITORIAL } from "@/components/home-page/PassportJourney/ui/tokens";
 import IdentityCard from "./IdentityCard";
 import { useAboutAnimation } from "./useAboutAnimation";
 

@@ -28,7 +28,8 @@ interface GvizResponse {
 
 /** Empty cells and "-" placeholders both count as "no value". */
 const clean = (v: unknown) => {
-  const s = typeof v === "string" ? v.trim() : v == null ? "" : String(v).trim();
+  const raw = typeof v === "string" ? v : v == null ? "" : String(v);
+  const s = raw.trim().replace(/^["'“”‘’]+|["'“”‘’]+$/g, "").trim();
   return s === "-" ? "" : s;
 };
 
@@ -122,7 +123,6 @@ export async function loadStories(init?: RequestInit): Promise<Story[]> {
   if (!ok.length) throw new Error("No story sheet could be loaded");
   return mergeStories(ok.map((r) => r.value));
 }
-
 /* ---------- media URLs (sized, so phones never download big files) ---------- */
 
 export function imageSrc(id: string, width: number, ratio = "4:5") {
@@ -134,6 +134,9 @@ export function imageSrcSet(id: string, ratio = "4:5") {
 export function fullImageSrc(id: string) {
   return `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload/f_auto,q_auto,w_1200/${id}`;
 }
+/** Vertical (9:16) thumbnail. YouTube has it for Shorts only. */
+export const videoThumbVertical = (id: string) => `https://i.ytimg.com/vi/${id}/oardefault.jpg`;
+/** Landscape thumbnail, available for every video. Shorts get black bars on both sides. */
 export const videoThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 export const videoEmbed = (id: string) =>
   `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;

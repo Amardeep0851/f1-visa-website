@@ -1,6 +1,6 @@
 import { Plane } from "lucide-react";
 import type { Story } from "@/lib/home-page/testimonials";
-import { FONT_DISPLAY } from "@/components/PassportJourney/ui/tokens";
+import { FONT_DISPLAY } from "@/components/home-page/PassportJourney/ui/tokens";
 import styles from "./stories.module.css";
 
 /** Slow ticker of student names, like a departures board. Pauses on hover. */

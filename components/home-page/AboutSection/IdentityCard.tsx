@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { identityFields, MRZ } from "@/data/home-page/about";
-import { FONT_DISPLAY, FONT_EDITORIAL } from "@/components/PassportJourney/ui/tokens";
+import { FONT_DISPLAY, FONT_EDITORIAL } from "@/components/home-page/PassportJourney/ui/tokens";
 import styles from "./identity.module.css";
 
 /** Red rubber stamp that lands on the card. Wording is factual (no "verified" claims). */

@@ -1,5 +1,5 @@
 import { countries, loaderCopy } from "@/data/journey";
-import { FONT_DISPLAY } from "@/components/PassportJourney/ui/tokens";
+import { FONT_DISPLAY } from "@/components/home-page/PassportJourney/ui/tokens";
 
 /**
  * Runs before paint. If the loader was already shown this session (or motion is reduced)
